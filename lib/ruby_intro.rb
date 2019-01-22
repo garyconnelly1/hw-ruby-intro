@@ -2,34 +2,96 @@
 
 # Part 1
 
+#######################################################
+# A.
 def sum arr
-  # YOUR CODE HERE
+  count = 0
+  arr.each {
+    |x| count += x
+  }
+  return count
 end
 
+
+#######################################################
+# B.
 def max_2_sum arr
-  # YOUR CODE HERE
+  return arr.sort.last(2).sum
+  
 end
 
+
+########################################################
+# C.
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  arr.to_a
+  count = 0
+ for i in 0.. arr.length - 1 do
+   for j in i + 1 .. arr.length - 1 do
+     if arr[i] + arr[j] == n
+       count += 1
+     end
+   end
+ end
+ 
+ if count == 0
+   return false
+ else
+   return true
+ end
+  
 end
+#######################################################
+
+#######################################################
 
 # Part 2
 
+#######################################################
+# A.
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, #{name}"
 end
 
+
+#######################################################
+# B.
 def starts_with_consonant? s
-  # YOUR CODE HERE
+ if s =~ /\A(?=[^aeiou])(?=[a-z])/i
+   return true
+ else 
+   return false
+ end
+ 
 end
 
+#######################################################
+# B. SKIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIPPPPPPPPPPPP
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+ 
+ return true if s == "0"
+ /^[10]*00$/.match(s) != nil
+ 
 end
 
 # Part 3
-
+#######################################################
+# A.
 class BookInStock
-# YOUR CODE HERE
+	def initialize(isbn,price)
+		@isbn=isbn
+		@price=price
+		# exeption 
+		if @isbn.empty? || @price <= 0 
+			raise ArgumentError
+		end
+	end
+	
+	attr_accessor :isbn
+	attr_accessor :price
+
+	def price_as_string
+		"$#{'%.2f' %  self.price}"
+	end
+
 end
